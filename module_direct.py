@@ -9,8 +9,8 @@ def execute_query(conn: Connection):
     result = conn.execute(stmt)
 
     rows = result.fetchall()
-    print(rows)
     result.close()
+    return rows
 
 def execute_sleep(conn: Connection):
     query = "select sleep(5)"
@@ -19,8 +19,9 @@ def execute_sleep(conn: Connection):
 
 for ind in range(20):
     try: 
+        # database.py의 direct_get_conn() 호출 => Connection 생성 함수
         conn = direct_get_conn()
-        execute_sleep(conn)
+        execute_sleep(conn)  
         print("loop index:", ind)
     except SQLAlchemyError as e:
         print(e)
@@ -31,7 +32,10 @@ for ind in range(20):
 print("end of loop")
 
 
-
+# conn = direct_get_conn()
+# rows = execute_query(conn)
+# print(f"rows: {rows}")
+# conn.close()
 
 
 

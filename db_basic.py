@@ -26,6 +26,13 @@ try:
     rows = result.fetchall()
     print(f'type rows: {rows}')
 
+    # print(type(rows))
+    print("======================")
+    print(rows[0])
+    print(rows[0][0]," / ", rows[0][1])
+    print(rows[0].id," / ", rows[0].title)
+    print(rows[0]._key_to_index)
+
     result.close()
 
 except SQLAlchemyError as e:
