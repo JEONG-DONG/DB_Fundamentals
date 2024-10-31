@@ -4,10 +4,12 @@ DROP DATABASE if exists blog_db;
 
 CREATE DATABASE blog_db;
 
+USE blog_db;
+
 DROP TABLE if exists blog;
 
 CREATE TABLE blog (
-  id int(11) NOT NULL AUTO_INCREMENT,
+  id int NOT NULL AUTO_INCREMENT,
   title varchar(200) NOT NULL,
   author varchar(100) NOT NULL,
   content varchar(4000) NOT NULL,
